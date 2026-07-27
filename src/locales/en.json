@@ -1,0 +1,21 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact",
+    "login": "Login",
+    "book": "Book Appointment",
+    "admin": "Admin",
+    "my_dashboard": "My Dashboard"
+  },
+  "labels": {
+    "from": "From",
+    "not_sure": "Not Sure What You Need?",
+    "book_consultation": "Book a Consultation",
+    "price": "Price",
+    "create_appointment": "Create Appointment",
+    "save_changes": "Save Changes",
+    "cancel": "Cancel"
+  }
+}
