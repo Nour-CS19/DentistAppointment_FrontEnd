@@ -4,10 +4,9 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
-  // Only apply the GitHub Pages subpath in production builds — in dev this made
-  // the whole site live under /DentistManagmentAppointment-/ instead of the root,
-  // so visiting localhost:8080/ directly showed nothing.
-  base: mode === "production" ? "/DentistManagmentAppointment-/" : "/",
+  // Base path: Defaults to "/" for Vercel / root deployments.
+  // Set VITE_BASE_PATH environment variable if deploying to a subpath (e.g. GitHub Pages).
+  base: process.env.VITE_BASE_PATH || "/",
 
   server: {
     host: "::",
