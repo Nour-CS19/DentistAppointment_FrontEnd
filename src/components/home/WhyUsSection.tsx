@@ -1,90 +1,106 @@
-import { CheckCircle, Award, Users, Clock } from "lucide-react";
+import { CheckCircle, Award, Users, Clock, ShieldCheck, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const features = [
   {
     icon: Award,
-    title: "Expert Team",
-    description: "Board-certified dentists with years of specialized training.",
+    title: "Board-Certified Specialists",
+    description: "Multi-specialty team of dentists committed to continuous medical excellence.",
   },
   {
     icon: CheckCircle,
-    title: "Latest Technology",
-    description: "State-of-the-art equipment for precise, comfortable treatment.",
+    title: "Cutting-Edge Technology",
+    description: "Low-radiation 3D X-rays, laser treatments, and digital impressions.",
   },
   {
     icon: Users,
-    title: "Patient-Centered",
-    description: "Personalized care plans tailored to your unique needs.",
+    title: "Patient-Centered Comfort",
+    description: "Sleek, peaceful clinical environments tailored to eliminate dental anxiety.",
   },
   {
     icon: Clock,
-    title: "Flexible Hours",
-    description: "Evening and weekend appointments to fit your schedule.",
+    title: "Flexible Emergency Hours",
+    description: "Same-day urgent appointments, evening options, and weekend availability.",
   },
 ];
 
 const WhyUsSection = () => {
   return (
-    <section className="py-20">
-      <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Content */}
-          <div>
-            <span className="text-primary font-medium text-sm uppercase tracking-wider">
-              Why Choose Us
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-2 mb-6">
-              A Dental Experience You'll Actually Enjoy
+    <section className="py-24 relative overflow-hidden bg-background">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          {/* Content Left */}
+          <div className="lg:col-span-7">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent/10 text-accent text-xs font-bold uppercase tracking-wider mb-3">
+              <ShieldCheck className="w-3.5 h-3.5" />
+              Why Choose DentCare
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground tracking-tight mb-6">
+              A Dental Experience Designed Around Your Total Comfort
             </h2>
-            <p className="text-muted-foreground mb-8">
-              We believe going to the dentist should be a positive experience. That's why we've 
-              created a warm, welcoming environment where you can relax while receiving 
-              top-quality care.
+            <p className="text-muted-foreground text-base sm:text-lg leading-relaxed mb-10 max-w-xl">
+              We combine world-class dental expertise with compassionate care. Experience seamless appointments, transparent pricing, and gentle treatments designed for lasting health.
             </p>
 
             <div className="grid sm:grid-cols-2 gap-6">
               {features.map((feature) => (
-                <div key={feature.title} className="flex gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <feature.icon className="w-5 h-5 text-primary" />
+                <div key={feature.title} className="p-4 rounded-2xl bg-secondary/40 border border-border/50 hover:bg-secondary/70 transition-colors flex gap-4">
+                  <div className="w-11 h-11 rounded-xl bg-gradient-to-tr from-primary to-accent flex items-center justify-center text-white shrink-0 shadow-md shadow-primary/20">
+                    <feature.icon className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground mb-1">{feature.title}</h4>
-                    <p className="text-sm text-muted-foreground">{feature.description}</p>
+                    <h4 className="font-bold text-foreground mb-1 text-sm">{feature.title}</h4>
+                    <p className="text-xs text-muted-foreground leading-relaxed">{feature.description}</p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Visual */}
-          <div className="relative">
-            <div className="bg-gradient-hero rounded-3xl p-8 text-primary-foreground">
-              <h3 className="text-2xl font-bold mb-4">
-                Schedule Your Visit Today
+          {/* Visual Banner Right */}
+          <div className="lg:col-span-5 relative">
+            <div className="relative rounded-3xl p-8 bg-gradient-to-br from-primary via-teal-700 to-accent text-white shadow-2xl overflow-hidden">
+              {/* Soft background shape */}
+              <div className="absolute -right-10 -bottom-10 w-48 h-48 bg-white/10 rounded-full blur-xl pointer-events-none" />
+
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/15 text-white text-xs font-bold mb-6">
+                <Sparkles className="w-3.5 h-3.5 text-gold-400" />
+                First Visit Offer
+              </div>
+
+              <h3 className="text-2xl sm:text-3xl font-extrabold mb-4 leading-tight">
+                Schedule Your Complimentary Consultation
               </h3>
-              <p className="text-primary-foreground/80 mb-6">
-                New patients receive a complimentary consultation and X-rays with their first visit.
+              <p className="text-white/85 text-sm mb-8 leading-relaxed">
+                New patients receive a complete digital oral screening and diagnostic examination during their first appointment.
               </p>
-              <div className="flex items-center gap-4">
-                <div className="flex -space-x-3">
-                  {[1, 2, 3, 4].map((i) => (
-                    <div
-                      key={i}
-                      className="w-10 h-10 rounded-full bg-primary-foreground/20 border-2 border-primary flex items-center justify-center text-sm font-medium"
-                    >
-                      {i}
-                    </div>
-                  ))}
+
+              <div className="pt-6 border-t border-white/20 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="flex -space-x-2.5">
+                    {["👩‍⚕️", "👨‍⚕️", "👩", "👨"].map((emoji, idx) => (
+                      <div
+                        key={idx}
+                        className="w-9 h-9 rounded-full bg-white/20 backdrop-blur-xs border-2 border-white flex items-center justify-center text-xs shadow-xs"
+                      >
+                        {emoji}
+                      </div>
+                    ))}
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-white">Join 10,000+</p>
+                    <p className="text-[10px] text-white/70">Satisfied patients</p>
+                  </div>
                 </div>
-                <p className="text-sm text-primary-foreground/80">
-                  Join 10,000+ happy patients
-                </p>
+
+                <Link to="/book">
+                  <Button size="sm" className="bg-white text-primary font-bold hover:bg-white/90 rounded-xl">
+                    Claim Offer
+                  </Button>
+                </Link>
               </div>
             </div>
-            
-            {/* Decorative Element */}
-            <div className="absolute -z-10 -bottom-4 -right-4 w-full h-full bg-secondary rounded-3xl" />
           </div>
         </div>
       </div>

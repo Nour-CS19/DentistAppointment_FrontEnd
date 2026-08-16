@@ -270,44 +270,47 @@ const Admin = () => {
     setActiveView("list");
   };
 
-  const getStatusBadge = (status: string) => {
-    switch (status) {
+  const getStatusBadge = (status?: string) => {
+    if (!status) return <Badge variant="outline" className="rounded-full">Pending</Badge>;
+    switch (status.toLowerCase()) {
       case "confirmed":
-        return <Badge className="bg-primary/10 text-primary border-primary/20">Confirmed</Badge>;
+        return <Badge className="bg-primary/15 text-primary border-primary/30 rounded-full font-bold px-3 py-0.5">Confirmed</Badge>;
       case "pending":
-        return <Badge className="bg-gold-500/10 text-gold-600 border-gold-500/20">Pending</Badge>;
+        return <Badge className="bg-gold-500/15 text-gold-600 border-gold-500/30 rounded-full font-bold px-3 py-0.5">Pending</Badge>;
       case "cancelled":
-        return <Badge className="bg-destructive/10 text-destructive border-destructive/20">Cancelled</Badge>;
+        return <Badge className="bg-destructive/15 text-destructive border-destructive/30 rounded-full font-bold px-3 py-0.5">Cancelled</Badge>;
       case "completed":
-        return <Badge className="bg-teal-600/10 text-teal-600 border-teal-600/20">Completed</Badge>;
+        return <Badge className="bg-emerald-500/15 text-emerald-600 border-emerald-500/30 rounded-full font-bold px-3 py-0.5">Completed</Badge>;
       default:
-        return <Badge variant="outline">{status}</Badge>;
+        return <Badge variant="outline" className="rounded-full">{status}</Badge>;
     }
   };
 
-  const getPaymentBadge = (status: string) => {
-    switch (status) {
+  const getPaymentBadge = (status?: string) => {
+    if (!status) return <Badge variant="outline" className="rounded-full">Unpaid</Badge>;
+    switch (status.toLowerCase()) {
       case "paid":
-        return <Badge className="bg-teal-600/10 text-teal-600 border-teal-600/20">Paid</Badge>;
+        return <Badge className="bg-emerald-500/15 text-emerald-600 border-emerald-500/30 rounded-full font-bold px-3 py-0.5">Paid</Badge>;
       case "pending":
-        return <Badge className="bg-gold-500/10 text-gold-600 border-gold-500/20">Pending</Badge>;
+        return <Badge className="bg-gold-500/15 text-gold-600 border-gold-500/30 rounded-full font-bold px-3 py-0.5">Pending</Badge>;
       case "unpaid":
-        return <Badge className="bg-destructive/10 text-destructive border-destructive/20">Unpaid</Badge>;
+        return <Badge className="bg-destructive/15 text-destructive border-destructive/30 rounded-full font-bold px-3 py-0.5">Unpaid</Badge>;
       default:
-        return <Badge variant="outline">{status}</Badge>;
+        return <Badge variant="outline" className="rounded-full">{status}</Badge>;
     }
   };
 
+  const todayStr = new Date().toISOString().split("T")[0];
   const todayAppointments = appointments.filter(
-    (apt) => apt.appointment_date === new Date().toISOString().split("T")[0]
+    (apt) => apt.appointment_date && apt.appointment_date.split("T")[0] === todayStr
   );
 
   const totalRevenue = appointments
-    .filter((a) => a.payment_status === "paid")
-    .reduce((sum, a) => sum + a.price, 0);
+    .filter((a) => a.payment_status && a.payment_status.toLowerCase() === "paid")
+    .reduce((sum, a) => sum + (a.price || 0), 0);
   const formattedTotalRevenue = formatCurrency(totalRevenue, i18n.language);
 
-  const pendingAppointments = appointments.filter((a) => a.status === "pending");
+  const pendingAppointments = appointments.filter((a) => (a.status || "").toLowerCase() === "pending");
 
   const stats = [
     { label: "Today's Appointments", value: todayAppointments.length.toString(), icon: Calendar, color: "text-primary" },
@@ -315,6 +318,8 @@ const Admin = () => {
     { label: "Revenue", value: formattedTotalRevenue, icon: DollarSign, color: "text-gold-500" },
     { label: "Pending", value: pendingAppointments.length.toString(), icon: Clock, color: "text-accent" },
   ];
+
+
 
   // LIST VIEW
   const renderListView = () => (
