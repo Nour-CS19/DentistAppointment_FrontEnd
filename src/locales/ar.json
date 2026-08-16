@@ -1,0 +1,21 @@
+{
+  "nav": {
+    "home": "الرئيسية",
+    "services": "الخدمات",
+    "about": "من نحن",
+    "contact": "اتصل بنا",
+    "login": "تسجيل الدخول",
+    "book": "حجز موعد",
+    "admin": "المشرف",
+    "my_dashboard": "لوحة التحكم"
+  },
+  "labels": {
+    "from": "من",
+    "not_sure": "هل لست متأكداً مما تحتاج؟",
+    "book_consultation": "حجز استشارة",
+    "price": "السعر",
+    "create_appointment": "إنشاء موعد",
+    "save_changes": "حفظ التغييرات",
+    "cancel": "إلغاء"
+  }
+}
