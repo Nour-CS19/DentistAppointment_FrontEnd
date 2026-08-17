@@ -5,16 +5,16 @@ import { Button } from "@/components/ui/button";
 const testimonials = [
   {
     id: 1,
-    name: "Sarah Montgomery",
+    name: "Mona Abdelrahman",
     role: "Cosmetic Patient",
     rating: 5,
     treatment: "Laser Whitening & Veneers",
     image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=300",
-    quote: "The result was completely transformative! I used to hide my smile in photographs. Dr. Sarah and her team made the laser whitening process completely painless and swift. I couldn't be happier!",
+    quote: "The result was completely transformative! I used to hide my smile in photographs. Dr. Aya and her team made the laser whitening process completely painless and swift. I couldn't be happier!",
   },
   {
     id: 2,
-    name: "David Chen",
+    name: "Omar El-Hadary",
     role: "Regular Care Patient",
     rating: 5,
     treatment: "Painless Root Canal & Crown",
@@ -23,7 +23,7 @@ const testimonials = [
   },
   {
     id: 3,
-    name: "Elena Rostova",
+    name: "Nour Khaled",
     role: "Orthodontics Patient",
     rating: 5,
     treatment: "Clear Aligners Therapy",
@@ -70,6 +70,10 @@ const TestimonialsSection = () => {
                   <img
                     src={testimonials[currentIndex].image}
                     alt={testimonials[currentIndex].name}
+                    onError={(event) => {
+                      event.currentTarget.onerror = null;
+                      event.currentTarget.src = "/placeholder.svg";
+                    }}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />

@@ -5,25 +5,25 @@ import { Award, Calendar, Star, Sparkles, CheckCircle2 } from "lucide-react";
 
 const doctors = [
   {
-    name: "Dr. Sarah Jenkins",
-    title: "Lead Cosmetic Specialist",
-    experience: "14+ Years Experience",
+    name: "Dr. Aya Hassan",
+    title: "Lead Cosmetic Dentist · Cairo",
+    experience: "12+ Years Experience",
     rating: "4.9 (320+ reviews)",
     specialties: ["Veneers", "Smile Makeover", "Laser Whitening"],
     image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=400",
   },
   {
-    name: "Dr. Marcus Vance",
-    title: "Senior Implant Surgeon",
-    experience: "16+ Years Experience",
+    name: "Dr. Ahmed Farouk",
+    title: "Senior Implant Surgeon · Alexandria",
+    experience: "10+ Years Experience",
     rating: "5.0 (450+ reviews)",
     specialties: ["Dental Implants", "Bone Grafting", "Full Mouth Reconstruction"],
     image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=400",
   },
   {
-    name: "Dr. Elena Rostova",
-    title: "Orthodontist Specialist",
-    experience: "11+ Years Experience",
+    name: "Dr. Mariam Fahmy",
+    title: "Orthodontist Specialist · Giza",
+    experience: "8+ Years Experience",
     rating: "4.9 (280+ reviews)",
     specialties: ["Invisalign Pro", "Braces", "Bite Correction"],
     image: "https://images.unsplash.com/photo-1594824813566-78a95357345f?auto=format&fit=crop&q=80&w=400",
@@ -37,13 +37,13 @@ const DoctorsSection = () => {
         <div className="text-center max-w-2xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider mb-3">
             <Award className="w-3.5 h-3.5" />
-            World-Class Medical Team
+            Egyptian Dental Team
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground tracking-tight mb-4">
             Meet Our Specialist Dentists
           </h2>
           <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
-            Our board-certified dentists bring international training, compassionate patient care, and state-of-the-art expertise to every appointment.
+            Our Egyptian dentists provide compassionate care and modern dental expertise from clinics in Cairo, Giza, and Alexandria.
           </p>
         </div>
 
@@ -58,6 +58,10 @@ const DoctorsSection = () => {
                   <img
                     src={doc.image}
                     alt={doc.name}
+                    onError={(event) => {
+                      event.currentTarget.onerror = null;
+                      event.currentTarget.src = "/placeholder.svg";
+                    }}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
