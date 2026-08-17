@@ -10,7 +10,7 @@ const doctors = [
     experience: "12+ Years Experience",
     rating: "4.9 (320+ reviews)",
     specialties: ["Veneers", "Smile Makeover", "Laser Whitening"],
-    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=400",
+    image: "/images.jpg",
   },
   {
     name: "Dr. Ahmed Farouk",
@@ -18,7 +18,7 @@ const doctors = [
     experience: "10+ Years Experience",
     rating: "5.0 (450+ reviews)",
     specialties: ["Dental Implants", "Bone Grafting", "Full Mouth Reconstruction"],
-    image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=400",
+    image: "/images2.jpg",
   },
   {
     name: "Dr. Mariam Fahmy",
@@ -26,7 +26,7 @@ const doctors = [
     experience: "8+ Years Experience",
     rating: "4.9 (280+ reviews)",
     specialties: ["Invisalign Pro", "Braces", "Bite Correction"],
-    image: "https://images.unsplash.com/photo-1594824813566-78a95357345f?auto=format&fit=crop&q=80&w=400",
+    image: "/images6.png",
   },
 ];
 
